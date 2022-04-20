@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
   <title>Home - ListenTo</title>
+  <link rel="icon" href="assets/img/favicon.ico">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900&amp;display=swap" />
@@ -22,7 +23,6 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#">Sign Up</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Log In</a></li>
         </ul>
       </div>
     </div>
@@ -31,8 +31,24 @@
     <div class="masthead-content">
       <div class="container">
         <h1 class="masthead-heading mb-0">ListenTo📡</h1>
-        <audio src="http://47.113.231.184:8000/stream" controls="controls" alt="stream"></audio>
-        <audio src="http://47.113.231.184:8000/fluo" controls="controls" alt="fluo"></audio>
+        <audio src="http://47.113.231.184:8000/stream" controls="controls"></audio>
+        <audio src="http://47.113.231.184:8000/fluo" controls="controls"></audio>
+        <script>
+          import IcecastMetadataPlayer from "icecast-metadata-player";
+          const onMetadata = (metadata) => {
+            document.getElementById("metadata").innerHTML = metadata.StreamTitle;
+          };
+          const player =
+                  new IcecastMetadataPlayer(
+                          "http://47.113.231.184:8000/fluo",
+                          { onMetadata }
+                  );
+        </script>
+        <div>
+        <button onclick="player.play();"> Play </button>
+        <button onclick="player.stop();"> Stop </button>
+        <p> Now Playing: <span id="metadata"></span> </p>
+        </div>
       </div>
     </div>
     <div class="bg-circle-1 bg-circle"></div>
@@ -109,7 +125,7 @@
   <footer class="py-5 bg-black">
     <div class="container">
       <p class="text-center text-white m-0 small">
-        Copyright&nbsp;© Guanyun Lu 2022
+        CopyLEFT&nbsp;© Guanyun (Guy) Lu 2022
       </p>
     </div>
   </footer>
