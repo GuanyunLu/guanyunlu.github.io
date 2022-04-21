@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "dependencies": {
     "icecast-metadata-js": "^1.0.0",
     "icecast-metadata-player": "^1.11.6"
