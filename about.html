@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - ListenTo</title>
+    <title>About Us - ListenTo</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Montserrat.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
@@ -17,34 +17,29 @@
         <div class="container"><a class="navbar-brand logo" href="#">ListenTo</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="latest.html">Latest</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <main class="page landing-page"><section class="clean-block clean-hero" style="color: rgba(31, 57, 109, 0.95);">
-    <div class="text">
-        <h2>ListenTo📡</h2>
-        <button onclick="player_stream.play();"> Play Stream </button>
-        <button onclick="player_stream.stop();"> Stop Stream </button>
-        <button onclick="player_fluo.play();"> Play Fluo </button>
-        <button onclick="player_fluo.stop();"> Stop Fluo</button>
-        <p> Now Playing: <span id="metadata"></span> </p></div>
-</section>
-        <section class="clean-block clean-info dark">
+    <main class="page">
+        <section class="clean-block about-us">
             <div class="container">
                 <div class="block-heading">
-                    <h2 class="text-info">Tips</h2>
-                    <p>ListenTo is good for your health.</p>
+                    <h2 class="text-info">About</h2>
+                    <p>ListenTo is a project by Guanyun (Guy) Lu.</p>
+                    <p>Inspired by <a href="https://baihui.live">BAIHUI</a>, <a href="https://nts.live">NTS</a>, <a href="https://hkcr.live">HKCR</a> and other radios.</p>
+                    <p>A homage to them.</p>
                 </div>
-                <div class="row align-items-center">
-                    <div class="col-md-6"><img class="img-thumbnail" src="assets/img/listento.svg" alt="listento-logo"></div>
-                    <div class="col-md-6">
-                        <h3>Why not ListenTo?</h3>
-                        <div class="getting-started-info">
-                            <p>Now?</p>
+                <div class="row justify-content-center">
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card text-center clean-card"><img class="card-img-top w-100 d-block" src="assets/img/listento.svg" alt="listento-logo">
+                            <div class="card-body info">
+                                <h4 class="card-title">ListenTo 📡</h4>
+                                <p class="card-text">A graduation project.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -60,21 +55,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
     <script src="assets/js/vanilla-zoom.js"></script>
     <script src="assets/js/theme.js"></script>
-    <script src="assets/js/icecast-metadata-player-1.11.6.min.js"></script>
-    <script>
-        const player_stream =
-            new IcecastMetadataPlayer("http://47.113.231.184/stream.ogg",{
-                onMetadata: (metadata) => {console.log(metadata)},
-                metadataTypes: ["ogg"]}
-            );
-        const player_fluo =
-            new IcecastMetadataPlayer(
-                "http://47.113.231.184/fluo.ogg",
-                { onMetadata: (metadata) => {console.log(metadata)},
-                    metadataTypes: ["ogg"] }
-            );
-    </script>
-
 </body>
 
 </html>
