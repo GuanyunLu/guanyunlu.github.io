@@ -63,15 +63,14 @@
     <script src="assets/js/icecast-metadata-player-1.11.6.min.js"></script>
     <script>
         const player_stream =
-            new IcecastMetadataPlayer("http://47.113.231.184/stream.ogg",{
+            new IcecastMetadataPlayer("http://47.113.231.184:8000/stream.ogg",{
                 onMetadata: (metadata) => {console.log(metadata)},
                 metadataTypes: ["ogg"]}
             );
         const player_fluo =
-            new IcecastMetadataPlayer(
-                "http://47.113.231.184/fluo.ogg",
-                { onMetadata: (metadata) => {console.log(metadata)},
-                    metadataTypes: ["ogg"] }
+            new IcecastMetadataPlayer("http://47.113.231.184:8000/fluo.ogg", {
+                onMetadata: (metadata) => {console.log(metadata)},
+                metadataTypes: ["ogg"]}
             );
     </script>
 
