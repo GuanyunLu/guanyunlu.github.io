@@ -9,12 +9,15 @@
     <link rel="stylesheet" href="assets/css/Montserrat.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
+    <link rel="stylesheet" href="assets/css/listento.css">
     <link rel="icon" href="assets/img/favicon.ico">
 </head>
 
 <body>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-        <div class="container"><a class="navbar-brand logo" href="#">ListenTo</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand logo" href="#">ListenTo</a><button data-bs-toggle="collapse"
+                class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle
+                    navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
@@ -24,15 +27,26 @@
             </div>
         </div>
     </nav>
-    <main class="page landing-page"><section class="clean-block clean-hero" style="color: rgba(31, 57, 109, 0.95);">
-    <div class="text">
-        <h2>ListenTo📡</h2>
-        <button onclick="player_stream.play();"> Play Stream </button>
-        <button onclick="player_stream.stop();"> Stop Stream </button>
-        <button onclick="player_fluo.play();"> Play Fluo </button>
-        <button onclick="player_fluo.stop();"> Stop Fluo</button>
-        <p> Now Playing: <span id="metadata"></span> </p></div>
-</section>
+    <main class="page landing-page">
+        <section class="clean-block clean-hero" style="color: rgba(31, 57, 109, 0.95);">
+            <div class="text">
+                <h2>ListenTo📡</h2>
+                <div class="div-horizontal">
+                    <div class="div-vertical">
+                        <p>Channel 1: Stream</p>
+                        <div class="div-horizontal">
+                            <button onclick="player.play();"> Play Stream </button>
+                            <button onclick="player.stop();"> Stop Stream </button>
+                        </div>
+                        <p> Now Playing: <span id="metadata"></span> </p>
+                    </div>
+                    <div class="div-vertical">
+                        <p>Channel 2: Fluo</p>
+                        <audio src="http://47.113.231.184:8000/fluo.ogg" controls></audio>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section class="clean-block clean-info dark">
             <div class="container">
                 <div class="block-heading">
@@ -40,7 +54,8 @@
                     <p>ListenTo is good for your health.</p>
                 </div>
                 <div class="row align-items-center">
-                    <div class="col-md-6"><img class="img-thumbnail" src="assets/img/listento.svg" alt="listento-logo"></div>
+                    <div class="col-md-6"><img class="img-thumbnail" src="assets/img/listento.svg" alt="listento-logo">
+                    </div>
                     <div class="col-md-6">
                         <h3>Why not ListenTo?</h3>
                         <div class="getting-started-info">
@@ -62,15 +77,12 @@
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/icecast-metadata-player-1.11.6.min.js"></script>
     <script>
-        const player_stream =
-            new IcecastMetadataPlayer("http://47.113.231.184:8000/stream.ogg",{
-                onMetadata: (metadata) => {console.log(metadata)},
-                metadataTypes: ["ogg"]}
-            );
-        const player_fluo =
-            new IcecastMetadataPlayer("http://47.113.231.184:8000/fluo.ogg", {
-                onMetadata: (metadata) => {console.log(metadata)},
-                metadataTypes: ["ogg"]}
+        const player =
+            new IcecastMetadataPlayer("http://47.113.231.184:8000/stream.ogg",
+                {
+                    onMetadata: (metadata) => {document.getElementById("metadata").innerHTML=`${metadata.ARTIST} - ${metadata.TITLE}`},
+                    metadataTypes: ["ogg"]
+                }
             );
     </script>
 
