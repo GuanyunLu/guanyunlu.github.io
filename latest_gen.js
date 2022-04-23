@@ -21,6 +21,6 @@ map.forEach((val, key) => {
     if (cnt === 0)
         fs.appendFileSync('latest.html', '<div class="row">');
     fs.appendFileSync('latest.html', `<div class="col-md-6 col-lg-4 item"><a class="lightbox" href="${key}.html"><img class="img-thumbnail img-fluid image" src="http://47.113.231.184/${key}/image.jpeg"></a></div>`);
-    cnt+=1;
+    cnt += 1;
 })
 fs.appendFileSync('latest.html', '</div></div></section></main><footer class="page-footer dark"> <div class="footer-copyright"> <p>copyLEFT © 2022 Guanyun (Guy) Lu</p></div></footer><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script><script src="assets/js/vanilla-zoom.js"></script><script src="assets/js/theme.js"></script></body></html>');
