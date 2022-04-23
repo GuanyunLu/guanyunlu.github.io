@@ -40,7 +40,7 @@
                 </div>
                 <p> Now Playing: <span id="metadata"></span></p>
                 <p>Channel 2: Fluo</p>
-                <audio controls src="http://47.113.231.184:8000/fluo.ogg"></audio>
+                <audio controls src="http://47.113.231.184:8000/fluo.aac"></audio>
             </div>
         </div>
     </section>
@@ -75,12 +75,12 @@
 <script src="assets/js/icecast-metadata-player-1.11.6.min.js"></script>
 <script>
     const player =
-        new IcecastMetadataPlayer("http://47.113.231.184:8000/stream.ogg",
+        new IcecastMetadataPlayer("http://47.113.231.184:8000/stream.aac",
             {
                 onMetadata: (metadata) => {
-                    document.getElementById("metadata").innerHTML = `${metadata.ARTIST} - ${metadata.TITLE}`
+                    document.getElementById("metadata").innerHTML = `${metadata.StreamTitle}`
                 },
-                metadataTypes: ["ogg"]
+                metadataTypes: ['icy']
             }
         );
 </script>
