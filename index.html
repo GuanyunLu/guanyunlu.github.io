@@ -35,8 +35,10 @@
             <div class="div-vertical">
                 <p>Channel 1: Stream</p>
                 <div class="div-horizontal">
-                    <button onclick="player.play();"> Play Stream</button>
-                    <button onclick="player.stop();"> Stop Stream</button>
+                    <button onclick="player_ogg.play();"> Play ▶</button>
+                    <button onclick="player_ogg.stop();"> Stop ⏸</button>
+                    <button onclick="player_ogg.play(),player_aac.play();">Play ▶ (iOS)</button>
+                    <button onclick="player_ogg.stop(),player_aac.stop();">Stop ⏸ (iOS)</button>
                 </div>
                 <p> Now Playing: <span id="metadata"></span></p>
                 <p>Channel 2: Fluo</p>
@@ -74,15 +76,16 @@
 <script src="assets/js/theme.js"></script>
 <script src="assets/js/icecast-metadata-player-1.11.6.min.js"></script>
 <script>
-    const player =
-        new IcecastMetadataPlayer("http://47.113.231.184:8000/stream.aac",
-            {
-                onMetadata: (metadata) => {
-                    document.getElementById("metadata").innerHTML = `${metadata.StreamTitle}`
-                },
-                metadataTypes: ['icy']
-            }
-        );
+    const player_ogg = (new IcecastMetadataPlayer("http://47.113.231.184:8000/stream.ogg",
+        {
+            onMetadata: (metadata) => {
+                document.getElementById("metadata").innerHTML = `${metadata.ARTIST} - ${metadata.TITLE}`
+            },
+            metadataTypes: ["ogg"]
+        }
+    ))
+    const player_aac =
+        new IcecastMetadataPlayer("http://47.113.231.184:8000/stream.aac");
 </script>
 
 </body>
