@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
     <title>ListenTo</title>
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/Montserrat.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css" rel="stylesheet">
-    <link href="assets/css/vanilla-zoom.min.css" rel="stylesheet">
     <link href="assets/css/listento.css" rel="stylesheet">
     <link href="assets/img/favicon.ico" rel="icon">
 </head>
-
 <body>
 <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
     <div class="container"><a class="navbar-brand logo" href="#">ListenTo</a>
@@ -21,9 +17,9 @@
                     navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="latest.html">Latest</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link active" href=".">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="latest">Latest</a></li>
+                <li class="nav-item"><a class="nav-link" href="about">About</a></li>
             </ul>
         </div>
     </div>
@@ -34,13 +30,13 @@
             <h2>ListenTo📡</h2>
             <div class="div-vertical">
                 <p>Channel 1: Stream
-                <br>Click "Play ▶" to get information</p>
+                    <br>Click "Play ▶" to get information</p>
                 <div class="div-horizontal">
                     <button onclick="player_ogg.play();"> Play ▶</button>
                     <button onclick="player_ogg.stop();"> Stop ⏸</button>
                 </div>
                 <p> Now Playing: <span id="metadata"></span></p>
-                <p> If there's no sound, click this👇 </p>
+                <p> 👇 If there's no sound, click this </p>
                 <audio controls src="http://47.113.231.184:8000/stream.aac"></audio>
                 <p>Channel 2: Fluo</p>
                 <audio controls src="http://47.113.231.184:8000/fluo.aac"></audio>
@@ -68,13 +64,16 @@
 </main>
 <footer class="page-footer dark">
     <div class="footer-copyright">
-        <p>copyLEFT © 2022 Guanyun (Guy) Lu</p>
+        <p>Copyleft
+            <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 980 980">
+                <circle cx="490" cy="490" r="440" fill="none" stroke="#fff" stroke-width="100"/>
+                <path d="M219,428H350a150,150 0 1 1 0,125H219a275,275 0 1 0 0-125z" fill="#fff"/>
+            </svg>
+            2022 Guanyun (Guy) Lu
+        </p>
     </div>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
-<script src="assets/js/vanilla-zoom.js"></script>
-<script src="assets/js/theme.js"></script>
 <script src="assets/js/icecast-metadata-player-1.11.6.min.js"></script>
 <script>
     const player_ogg = (new IcecastMetadataPlayer("http://47.113.231.184:8000/stream.ogg",
@@ -86,7 +85,5 @@
         }
     ))
 </script>
-
 </body>
-
 </html>
