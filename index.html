@@ -30,15 +30,16 @@
             <h2>ListenTo📡</h2>
             <div class="div-vertical">
                 <p>Channel 1: Stream
-                    <br>Click "Play ▶" to get information</p>
+                    <br>Now Playing: <span id="metadata"></span>
+                </p>
+                <span>Click "Play ▶" to listen and get information</span>
                 <div class="div-horizontal">
                     <button onclick="player_ogg.play();"> Play ▶</button>
                     <button onclick="player_ogg.stop();"> Stop ⏸</button>
                 </div>
-                <p> Now Playing: <span id="metadata"></span></p>
-                <p> 👇 If there's no sound, click this </p>
+                <span> 👇 If there's no sound, click this </span>
                 <audio controls src="http://47.113.231.184:8000/stream.aac"></audio>
-                <p>Channel 2: Fluo</p>
+                <p style="margin-top: 10px">Channel 2: Fluo</p>
                 <audio controls src="http://47.113.231.184:8000/fluo.aac"></audio>
             </div>
         </div>

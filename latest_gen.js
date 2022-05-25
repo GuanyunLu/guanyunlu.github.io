@@ -1,7 +1,7 @@
 import fs from "fs";
 
-let jsonText = fs.readFileSync(`result.json`, "utf-8");
-let map = new Map(JSON.parse(jsonText));
+const jsonText = fs.readFileSync(`result.json`, "utf-8");
+const map = new Map(JSON.parse(jsonText));
 map.forEach((val, key) => {
     if (!fs.existsSync(`latest/${key}`)) {
         fs.mkdirSync(`latest/${key}`);
